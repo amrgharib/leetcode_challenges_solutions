@@ -1,0 +1,28 @@
+class Solution:
+    def sortArrayByParity(self, A: List[int]) -> List[int]:
+        even=[]
+        odd=[]
+        
+        for x in A:
+            if x % 2 == 0:
+                even.append(x)
+            else:
+                odd.append(x)
+        
+        return even+odd
+
+
+
+# Top solution
+# class Solution:
+#    def sortArrayByParity(self, A: List[int]) -> List[int]:
+#        i = 0
+#        j = len(A) - 1
+#        
+#        while i < j:
+#            if A[i] % 2 != 0:
+#                A[i], A[j] = A[j], A[i]
+#                i -= 1
+#                j -= 1
+#            i += 1
+#        return A
