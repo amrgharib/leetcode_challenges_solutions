@@ -1,0 +1,30 @@
+class Solution:
+    def findPeakElement(self, nums: List[int]) -> int:
+        
+        left, right = 0, len(nums)-1
+        
+        while left < right:
+            mid = (left + right) // 2
+            if nums[mid] < nums[mid+1]:
+                left = mid+1
+            elif nums[mid] < nums[mid-1]:
+                right = mid-1
+            else:
+                return mid
+            
+        return left
+        
+
+# Top solution
+
+# class Solution:
+#     def findPeakElement(self, nums: List[int]) -> int:
+#         def bSearch(l, r):
+#             if l == r:
+#                 return l
+#             midI = (r + l) // 2
+#             # falling slope - must be to left
+#             if nums[midI] > nums[midI + 1]:
+#                 return bSearch(l, midI)
+#             return bSearch(midI+1, r)
+#         return bSearch(0, len(nums)-1)
